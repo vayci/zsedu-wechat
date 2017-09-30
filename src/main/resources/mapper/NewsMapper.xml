@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhishujiaoyu.mapper.NewsMapper">
+    <select id="getNewsItem" parameterType="string" resultType="com.zhishujiaoyu.entity.DbNewsItem">
+        select * from wx_news_item where id = #{itemId}
+    </select>
+
+    <insert id="addNewsItem" parameterType="com.zhishujiaoyu.entity.DbNewsItem">
+        insert into wx_news_item(id,title,description,picurl,url,sort) values (
+        #{newsItem.id},
+        #{newsItem.Title},
+        #{newsItem.Description},
+        #{newsItem.PicUrl},
+        #{newsItem.Url},
+        #{newsItem.sort}
+        )
+    </insert>
+
+    <delete id="deleteNewsItem" parameterType="string">
+        DELETE from wx_news_item where id = #{itemId}
+    </delete>
+</mapper>
