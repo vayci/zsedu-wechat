@@ -1,5 +1,7 @@
 package com.zhishujiaoyu.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import me.chanjar.weixin.mp.api.WxMpMessageRouter;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * @author Binary Wang(https://github.com/binarywang)
  */
+@Api(description = "微信平台核心接口")
 @RestController
 @RequestMapping("/wechat/portal")
 public class WechatController {
@@ -24,6 +27,7 @@ public class WechatController {
     @Autowired
     private WxMpMessageRouter router;
 
+    @ApiOperation("接入认证")
     @GetMapping(produces = "text/plain;charset=utf-8")
     public String authGet(
             @RequestParam(name = "signature",
@@ -47,6 +51,7 @@ public class WechatController {
         return "非法请求";
     }
 
+    @ApiOperation("消息处理")
     @PostMapping(produces = "application/xml; charset=UTF-8")
     public String post(@RequestBody String requestBody,
                        @RequestParam("signature") String signature,

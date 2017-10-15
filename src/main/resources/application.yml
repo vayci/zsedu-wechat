@@ -15,7 +15,7 @@ spring:
         name: zsedu
         url: jdbc:mysql://rm-wz9n4gn94d28s3393o.mysql.rds.aliyuncs.com/zsedu
         username: root
-        password: 
+        password: Xiaohong2b
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
@@ -35,3 +35,10 @@ spring:
 mybatis:
     basepackage: com.zhishujiaoyu.mapper
     xmlLocation: classpath:mapper/**/*.xml
+
+swagger:
+    basepackage: com.zhishujiaoyu.controller
+    service:
+        name: 知塾教育微信平台
+        description:  null
+        developer: vayci
